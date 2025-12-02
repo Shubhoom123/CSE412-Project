@@ -1,6 +1,6 @@
 const { query } = require('../config/database');
 
-// Get all albums
+// Get albums
 const getAllAlbums = async (req, res) => {
   try {
     const result = await query(
@@ -18,12 +18,12 @@ const getAllAlbums = async (req, res) => {
     console.error('Error getting albums:', error);
     res.status(500).json({ 
       success: false, 
-      error: 'Failed to fetch albums' 
+      error: 'Failed to get albums' 
     });
   }
 };
 
-// Get album by ID with songs
+// Get album by ID
 const getAlbumById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -59,7 +59,7 @@ const getAlbumById = async (req, res) => {
     console.error('Error getting album:', error);
     res.status(500).json({ 
       success: false, 
-      error: 'Failed to fetch album' 
+      error: 'Failed to get album' 
     });
   }
 };
@@ -72,7 +72,7 @@ const createAlbum = async (req, res) => {
     if (!artistid || !title) {
       return res.status(400).json({ 
         success: false, 
-        error: 'Artist ID and title are required' 
+        error: 'Artist ID and title required' 
       });
     }
     
@@ -127,7 +127,7 @@ const updateAlbum = async (req, res) => {
     
     res.json({
       success: true,
-      message: 'Album updated successfully',
+      message: 'Album updated',
       data: result.rows[0]
     });
   } catch (error) {
@@ -160,7 +160,7 @@ const deleteAlbum = async (req, res) => {
     
     res.json({
       success: true,
-      message: 'Album deleted successfully'
+      message: 'Album deleted'
     });
   } catch (error) {
     console.error('Error deleting album:', error);
@@ -190,7 +190,7 @@ const getAlbumsByArtist = async (req, res) => {
     console.error('Error getting albums by artist:', error);
     res.status(500).json({ 
       success: false, 
-      error: 'Failed to fetch albums' 
+      error: 'Failed to get albums' 
     });
   }
 };

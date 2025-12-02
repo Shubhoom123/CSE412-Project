@@ -1,15 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const { 
-  getUserPlaylists, 
-  getPlaylistById, 
-  createPlaylist, 
-  updatePlaylist, 
+
+const {
+  getUserPlaylists,
+  getPlaylistById,
+  createPlaylist,
+  updatePlaylist,
   deletePlaylist,
   addSongToPlaylist,
   removeSongFromPlaylist,
   reorderPlaylist
 } = require('../controllers/playlistController');
+
 const { authenticateToken } = require('../middleware/auth');
 
 router.get('/user/:userId', authenticateToken, getUserPlaylists);

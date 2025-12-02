@@ -1,0 +1,409 @@
+.dashboard-container {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+    padding: 2rem;
+  }
+  
+  .dashboard-welcome {
+    margin-bottom: 3rem;
+    animation: slideIn 0.5s ease-out;
+  }
+  
+  .dashboard-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .dashboard-username {
+    background: linear-gradient(to right, #fbbf24, #f97316, #ea580c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .dashboard-subtitle {
+    font-size: 1.125rem;
+    color: #9ca3af;
+  }
+  
+  /* Stats Grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    animation: slideIn 0.5s ease-out 0.1s backwards;
+  }
+  
+  .stat-card {
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.9), rgba(10, 10, 10, 0.9));
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #f97316, #fbbf24, #f97316);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite linear;
+  }
+  
+  .stat-card:hover {
+    border-color: rgba(249, 115, 22, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(249, 115, 22, 0.2);
+  }
+  
+  .stat-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: white;
+  }
+  
+  .stat-icon.orange {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+  }
+  
+  .stat-icon.yellow {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  }
+  
+  .stat-icon.red {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+  }
+  
+  .stat-title {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+  }
+  /*CG*/
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  /* SC */
+  .section-card {
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.95), rgba(10, 10, 10, 0.95));
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    animation: slideIn 0.5s ease-out 0.2s backwards;
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: white;
+  }
+  
+  .section-link {
+    color: #f97316;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  
+  .section-link:hover {
+    color: #fbbf24;
+    text-decoration: underline;
+  }
+  
+  .song-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 0.75rem;
+    transition: all 0.3s;
+    margin-bottom: 0.75rem;
+  }
+  
+  .song-item:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translateX(5px);
+  }
+  
+  .song-thumbnail {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: white;
+    font-size: 1.125rem;
+  }
+  
+  .song-info {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .song-title {
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .song-artist {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .song-play-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid #f97316;
+    color: #f97316;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .song-play-btn:hover {
+    background: #f97316;
+    color: white;
+    transform: scale(1.1);
+  }
+  
+  /* Empty State */
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #6b7280;
+  }
+  
+  .empty-icon {
+    font-size: 4rem;
+    opacity: 0.2;
+    margin-bottom: 1rem;
+  }
+  
+  .empty-text {
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+  }
+  
+  .empty-link {
+    color: #f97316;
+    font-weight: 600;
+    transition: color 0.2s;
+    display: inline-block;
+    margin-top: 1rem;
+  }
+  
+  .empty-link:hover {
+    color: #fbbf24;
+    text-decoration: underline;
+  }
+  
+  /* Playlist Grid */
+  .playlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .playlist-card {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  
+  .playlist-card:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translateY(-5px);
+  }
+  
+  .playlist-cover {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    color: white;
+    transition: transform 0.3s;
+  }
+  
+  .playlist-card:hover .playlist-cover {
+    transform: scale(1.05);
+  }
+  
+  .playlist-title {
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .playlist-description {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Genre Distribution */
+  .genre-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .genre-card {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  
+  .genre-card:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translateY(-3px);
+  }
+  
+  .genre-count {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #f97316;
+    margin-bottom: 0.5rem;
+  }
+  
+  .genre-name {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Quick Actions */
+  .quick-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+    animation: slideIn 0.5s ease-out 0.3s backwards;
+  }
+  
+  .action-card {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: white;
+  }
+  
+  .action-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(249, 115, 22, 0.4);
+  }
+  
+  .action-card.yellow {
+    background: linear-gradient(135deg, #fbbf24, #f97316);
+  }
+  
+  .action-card.red {
+    background: linear-gradient(135deg, #ef4444, #f97316);
+  }
+  
+  .action-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .action-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .action-description {
+    font-size: 0.875rem;
+    opacity: 0.9;
+  }
+  
+  @media (max-width: 1024px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .dashboard-container {
+      padding: 1rem;
+    }
+  
+    .dashboard-title {
+      font-size: 2rem;
+    }
+  
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .quick-actions {
+      grid-template-columns: 1fr;
+    }
+  }

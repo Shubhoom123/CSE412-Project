@@ -4,10 +4,10 @@ const session = require('express-session');
 const passport = require('passport');
 require('dotenv').config();
 
-// Import database configuration
+// Import DB confi
 const { pool } = require('./config/database');
 
-// Import routes (we'll create these next)
+// Import routes
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 const artistRoutes = require('./routes/artistRoutes');
@@ -16,13 +16,13 @@ const songRoutes = require('./routes/songRoutes');
 const playlistRoutes = require('./routes/playlistRoutes');
 const libraryRoutes = require('./routes/libraryRoutes');
 
-// Initialize Express app
+// Initialize Express On port
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = 3001;
 
 // Middleware
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: 'http://localhost:3000',
   credentials: true
 }));
 
@@ -31,12 +31,12 @@ app.use(express.urlencoded({ extended: true }));
 
 // Session configuration
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'your-secret-key',
+  secret: 'music_library_session_secret_2025',
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: process.env.NODE_ENV === 'production',
-    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+    secure: false,
+    maxAge: 24 * 60 * 60 * 1000
   }
 }));
 
@@ -62,7 +62,7 @@ app.use('/api/songs', songRoutes);
 app.use('/api/playlists', playlistRoutes);
 app.use('/api/library', libraryRoutes);
 
-// Error handling middleware
+// Error handling for mid
 app.use((err, req, res, next) => {
   console.error('Error:', err.stack);
   res.status(err.status || 500).json({
@@ -83,17 +83,14 @@ app.use((req, res) => {
   });
 });
 
-// Start server
 app.listen(PORT, () => {
-  console.log(`🚀 Server is running on port ${PORT}`);
-  console.log(`📊 Environment: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`🌐 Frontend URL: ${process.env.FRONTEND_URL || 'http://localhost:3000'}`);
+  console.log(`Server is running on port ${PORT}`);
+  console.log(`Frontend URL: http://localhost:3000`);
 });
 
-// Handle graceful shutdown
 process.on('SIGTERM', () => {
-  console.log('SIGTERM signal received: closing HTTP server');
+  console.log('server closed');
   pool.end(() => {
-    console.log('Database pool has ended');
+    console.log('End');
   });
 });
